@@ -14,8 +14,10 @@ namespace ENPDotNetCore.ConsoleApp
             DataSource = "THURA",
             InitialCatalog = "ENPDotNetCore",//database name
             UserID = "sa",
-            Password = "sasa@123"
+            Password = "sasa@123",
+            TrustServerCertificate = true,
         };
 
     }
 }
+ 
