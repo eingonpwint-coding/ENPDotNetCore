@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using ENPDotNetCore.ConsoleApp.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENPDotNetCore.ConsoleApp
+namespace ENPDotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {
@@ -16,7 +17,7 @@ namespace ENPDotNetCore.ConsoleApp
             //Read();
             //Edit(1);
             //Create("title", "author", "content");
-            Update(16,"test","test","test");
+            Update(16, "test", "test", "test");
 
             Delete(16);
 
@@ -24,7 +25,7 @@ namespace ENPDotNetCore.ConsoleApp
 
         private void Read()
         {
-           
+
             var lst = _db.Blogs.ToList();
             foreach (BlogDto item in lst)
             {
@@ -39,7 +40,7 @@ namespace ENPDotNetCore.ConsoleApp
 
         private void Edit(int id)
         {
-            var item = _db.Blogs.FirstOrDefault(x => x.BlogId  == id);
+            var item = _db.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 Console.WriteLine("No Data Found");
@@ -64,16 +65,16 @@ namespace ENPDotNetCore.ConsoleApp
             };
 
             _db.Blogs.Add(item);
-           int result = _db.SaveChanges();
-           string message = result > 0 ? "Saving Successful" : "Saving Failed";
+            int result = _db.SaveChanges();
+            string message = result > 0 ? "Saving Successful" : "Saving Failed";
             Console.WriteLine(message);
         }
 
         private void Update(int id, string title, string author, string content)
         {
 
-            var item = _db.Blogs.FirstOrDefault(x => x.BlogId==id);
-            if(item is null)
+            var item = _db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
             {
                 Console.WriteLine("No data found");
             }
@@ -82,7 +83,7 @@ namespace ENPDotNetCore.ConsoleApp
             item.BlogAuthor = author;
             item.BlogContent = content;
             int result = _db.SaveChanges();
-            
+
             string message = result > 0 ? "Updating Successful" : "Updating Failed";
             Console.WriteLine(message);
         }
@@ -91,12 +92,12 @@ namespace ENPDotNetCore.ConsoleApp
         {
             var item = _db.Blogs.FirstOrDefault(x => x.BlogId == id);
             _db.Blogs.Remove(item);
-           int result =  _db.SaveChanges();
+            int result = _db.SaveChanges();
 
             string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
             Console.WriteLine(message);
         }
     }
 
-    
+
 }

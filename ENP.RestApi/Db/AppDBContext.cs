@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ENP.RestApi.Models;
+using ENPDotNetCore.ConsoleApp.Services;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENPDotNetCore.ConsoleApp
+namespace ENP.RestApi.Db
 {
     internal class AppDBContext : DbContext
     {
@@ -14,6 +16,7 @@ namespace ENPDotNetCore.ConsoleApp
         {
             optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         }
-        public DbSet<BlogDto> Blogs { get; set; }
+        public DbSet<BlogModel> Blogs { get; set; }
+       
     }
 }

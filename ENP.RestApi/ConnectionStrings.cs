@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENPDotNetCore.ConsoleApp
+namespace ENPDotNetCore.ConsoleApp.Services
 {
     internal static class ConnectionStrings
     {
@@ -20,4 +20,3 @@ namespace ENPDotNetCore.ConsoleApp
 
     }
 }
- 
