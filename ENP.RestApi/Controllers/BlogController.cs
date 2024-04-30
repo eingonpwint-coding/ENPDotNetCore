@@ -1,9 +1,12 @@
-﻿using ENP.RestApi.Db;
-using ENP.RestApi.Models;
+﻿using Dapper;
+using ENPDotNetCore.RestApi.Db;
+using ENPDotNetCore.RestApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace ENP.RestApi.Controllers
+namespace ENPDotNetCore.RestApi.Controllers
 {
     //https:// localhost:3000 => domain url
     //api/Blog ---end point
@@ -33,7 +36,7 @@ namespace ENP.RestApi.Controllers
 
                 return NotFound("No data found");
             }
-            
+
 
 
             return Ok(item);
@@ -49,7 +52,7 @@ namespace ENP.RestApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id,BlogModel blog)
+        public IActionResult Update(int id, BlogModel blog)
         {
             var item = _dbContext.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item == null)
@@ -58,7 +61,7 @@ namespace ENP.RestApi.Controllers
                 return NotFound("No data found");
             }
             item.BlogTitle = blog.BlogTitle;
-            item.BlogAuthor = blog.BlogAuthor;  
+            item.BlogAuthor = blog.BlogAuthor;
             item.BlogContent = blog.BlogContent;
             var result = _dbContext.SaveChanges();
             string message = result > 0 ? "Updating Successful" : "Updating Failed";
@@ -75,20 +78,20 @@ namespace ENP.RestApi.Controllers
                 return NotFound("No data found");
             }
 
-            if(!string.IsNullOrEmpty(blog.BlogTitle))
+            if (!string.IsNullOrEmpty(blog.BlogTitle))
             {
                 item.BlogTitle = blog.BlogTitle;
             }
-            if(!string.IsNullOrEmpty(blog.BlogAuthor))
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
             {
                 item.BlogAuthor = blog.BlogAuthor;
             }
-           
-            if(!string.IsNullOrEmpty(blog.BlogContent))
+
+            if (!string.IsNullOrEmpty(blog.BlogContent))
             {
                 item.BlogAuthor = blog.BlogAuthor;
             }
-           
+
             var result = _dbContext.SaveChanges();
             string message = result > 0 ? "Updating Successful" : "Updating Failed";
             return Ok(message);
@@ -109,7 +112,8 @@ namespace ENP.RestApi.Controllers
             string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
             return Ok(message);
         }
+        
 
-      
+
     }
 }

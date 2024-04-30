@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENP.RestApi.Models;
+namespace ENPDotNetCore.RestApi.Models;
 
 //need to map C# object and database 
 [Table("Tbl_Blog")]

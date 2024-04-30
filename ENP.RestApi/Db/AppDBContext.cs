@@ -1,5 +1,4 @@
-﻿using ENP.RestApi.Models;
-using ENPDotNetCore.ConsoleApp.Services;
+﻿using ENPDotNetCore.RestApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENP.RestApi.Db
+namespace ENPDotNetCore.RestApi.Db
 {
     internal class AppDBContext : DbContext
     {
@@ -17,6 +16,6 @@ namespace ENP.RestApi.Db
             optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         }
         public DbSet<BlogModel> Blogs { get; set; }
-       
+
     }
 }
