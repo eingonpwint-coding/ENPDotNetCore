@@ -91,6 +91,11 @@ namespace ENPDotNetCore.ConsoleApp.EFCoreExamples
         public void Delete(int id)
         {
             var item = _db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
             _db.Blogs.Remove(item);
             int result = _db.SaveChanges();
 
