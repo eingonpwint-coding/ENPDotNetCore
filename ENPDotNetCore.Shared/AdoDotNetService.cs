@@ -67,6 +67,8 @@ namespace ENPDotNetCore.Shared
             List<T> lst = JsonConvert.DeserializeObject<List<T>>(json)!;// json to C#
             return lst;
         }
+
+
         public T QueryFirstOrDefault<T>(string query, params AdoDotNetParameter[]? parameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
@@ -102,7 +104,9 @@ namespace ENPDotNetCore.Shared
                 //{
                 //    cmd.Parameters.AddWithValue(item.Name, item.Value); 
                 //}
-                cmd.Parameters.AddRange(parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray());
+                //cmd.Parameters.AddRange(parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray());
+                var parametersArray = parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray();
+                cmd.Parameters.AddRange(parametersArray);
             }
 
             var result = cmd.ExecuteNonQuery();
