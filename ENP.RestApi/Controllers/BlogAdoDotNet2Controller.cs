@@ -19,13 +19,14 @@ namespace ENPDotNetCore.RestApi.Controllers
         {
             string query = "select * from Tbl_Blog;";
             var lst = _adoDotNetService.Query<BlogModel>(query);
+
             return Ok(lst);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetBlog(int id)
         {
-            string query = "select * from tbl_blog where BlogId = @BlogId";
+            
 
             //if not use params, 
             //AdoDotNetParameter[] parameters = new AdoDotNetParameter[1];
@@ -34,7 +35,7 @@ namespace ENPDotNetCore.RestApi.Controllers
 
             //if use params, write below, params means we can add other property by using comma 
 
-            var item = _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
+            var item = BlogById(id);
             if (item is null)
             {
                 return NotFound("No data found");
@@ -135,7 +136,13 @@ namespace ENPDotNetCore.RestApi.Controllers
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
+
         {
+            var item = BlogById(id);
+            if (item is null)
+            {
+                return NotFound("No data found");
+            }
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
             WHERE BlogId = @BlogId";
 

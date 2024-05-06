@@ -65,6 +65,7 @@ namespace ENPDotNetCore.Shared
 
             string json = JsonConvert.SerializeObject(dt);//C# to json
             List<T> lst = JsonConvert.DeserializeObject<List<T>>(json)!;// json to C#
+          
             return lst;
         }
 
@@ -91,6 +92,11 @@ namespace ENPDotNetCore.Shared
 
             string json = JsonConvert.SerializeObject(dt);//C# to json
             List<T> lst = JsonConvert.DeserializeObject<List<T>>(json)!;// json to C#
+            if (lst.Count == 0)
+            {
+                return default;
+            }
+            
             return lst[0];
         }
         public int Execute(string query, params AdoDotNetParameter[]? parameters)
