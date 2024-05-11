@@ -89,7 +89,7 @@ namespace ENPDotNetCore.RestApi.Controllers
 
             if (!string.IsNullOrEmpty(blog.BlogContent))
             {
-                item.BlogAuthor = blog.BlogAuthor;
+                item.BlogContent = blog.BlogContent;
             }
 
             var result = _dbContext.SaveChanges();
