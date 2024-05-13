@@ -28,7 +28,12 @@ namespace ENPDotNetCore.HomeworkApi.Controllers
         public async Task<IActionResult> GetBirdById(int id)
         {
             var model = await GetDataAsync();
-            return Ok(model.Tbl_Bird.FirstOrDefault(x => x.Id == id));
+            var bird = model.Tbl_Bird.FirstOrDefault(x => x.Id == id);
+            if (bird is null)
+            {
+                return NotFound("No data found");
+            }
+            return Ok(bird);
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Quic;
 
 namespace ENPDotNetCore.HomeworkApi.Controllers;
 
@@ -26,14 +27,24 @@ public class PickAPileController : ControllerBase
     public async Task<IActionResult> GetQuestionById(int id)
     {
         var model = await GetDataAsync();
-        return Ok(model.Questions.FirstOrDefault(x => x.QuestionId == id));
+        var question = model.Questions.FirstOrDefault(x => x.QuestionId == id);
+        if (question is null)
+        {
+            return NotFound("No data Found");
+        }
+        return Ok(question);
     }
 
     [HttpGet("{questionNo}/{answerNo}")]
     public async Task<IActionResult> GetResult(int questionNo, int answerNo)
     {
         var model = await GetDataAsync();
-        return Ok(model.Answers.FirstOrDefault(x => x.QuestionId == questionNo && x.AnswerId == answerNo));
+        var answer = model.Answers.FirstOrDefault(x => x.QuestionId == questionNo && x.AnswerId == answerNo);
+        if (answer is null)
+        { 
+            return NotFound("No data Found");
+        }
+        return Ok(answer);
 
     }
 
