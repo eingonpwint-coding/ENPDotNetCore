@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppHtt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppRestClientExamples", "ENPDotNetCore.ConsoleAppRestClientExamples\ENPDotNetCore.ConsoleAppRestClientExamples.csproj", "{94EE6E92-54EB-4029-BB52-6278522BB1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.BirdApi", "ENPDotNetCore.BirdApi\ENPDotNetCore.BirdApi.csproj", "{04244FB1-18C5-4B61-85E7-A87EBFC3CF58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.HomeworkApi", "ENPDotNetCore.HomeworkApi\ENPDotNetCore.HomeworkApi.csproj", "{91A34F32-EC82-4675-B945-91C1B5CD702F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{94EE6E92-54EB-4029-BB52-6278522BB1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94EE6E92-54EB-4029-BB52-6278522BB1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94EE6E92-54EB-4029-BB52-6278522BB1EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04244FB1-18C5-4B61-85E7-A87EBFC3CF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04244FB1-18C5-4B61-85E7-A87EBFC3CF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04244FB1-18C5-4B61-85E7-A87EBFC3CF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04244FB1-18C5-4B61-85E7-A87EBFC3CF58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A34F32-EC82-4675-B945-91C1B5CD702F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A34F32-EC82-4675-B945-91C1B5CD702F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A34F32-EC82-4675-B945-91C1B5CD702F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A34F32-EC82-4675-B945-91C1B5CD702F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

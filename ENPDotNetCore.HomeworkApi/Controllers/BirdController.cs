@@ -2,14 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace ENPDotNetCore.RestApiWithNLayer.Features.Bird
+namespace ENPDotNetCore.HomeworkApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BirdController : ControllerBase
     {
-        
-
         private async Task<MainDto> GetDataAsync()
         {
             string jsonStr = await System.IO.File.ReadAllTextAsync("Birds.json");
@@ -37,7 +35,7 @@ namespace ENPDotNetCore.RestApiWithNLayer.Features.Bird
     }
     public class MainDto
     {
-        public Bird[] Tbl_Bird { get; set; } 
+        public Bird[] Tbl_Bird { get; set; }
     }
 
     public class Bird
