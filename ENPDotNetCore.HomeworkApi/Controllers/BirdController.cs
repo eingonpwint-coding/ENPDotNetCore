@@ -8,23 +8,21 @@ namespace ENPDotNetCore.HomeworkApi.Controllers
     [ApiController]
     public class BirdController : ControllerBase
     {
-        private async Task<MainDto> GetDataAsync()
+        private async Task<Bird> GetDataAsync()
         {
             string jsonStr = await System.IO.File.ReadAllTextAsync("Birds.json");
-            var model = JsonConvert.DeserializeObject<MainDto>(jsonStr);
+            var model = JsonConvert.DeserializeObject<Bird>(jsonStr);
             return model;
-
         }
 
-        [HttpGet("birds")]
+        [HttpGet]
         public async Task<IActionResult> Birds()
         {
             var model = await GetDataAsync();
             return Ok(model.Tbl_Bird);
-
         }
 
-        [HttpGet("birds/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetBirdById(int id)
         {
             var model = await GetDataAsync();
@@ -35,15 +33,14 @@ namespace ENPDotNetCore.HomeworkApi.Controllers
             }
             return Ok(bird);
         }
-
-
-    }
-    public class MainDto
-    {
-        public Bird[] Tbl_Bird { get; set; }
     }
 
     public class Bird
+    {
+        public Tbl_Bird[] Tbl_Bird { get; set; }
+    }
+
+    public class Tbl_Bird
     {
         public int Id { get; set; }
         public string BirdMyanmarName { get; set; }

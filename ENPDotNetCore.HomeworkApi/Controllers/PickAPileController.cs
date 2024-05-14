@@ -47,7 +47,6 @@ public class PickAPileController : ControllerBase
         return Ok(answer);
 
     }
-
 }
 
 public class PickAPile
