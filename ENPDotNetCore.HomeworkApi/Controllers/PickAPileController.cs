@@ -45,7 +45,6 @@ public class PickAPileController : ControllerBase
             return NotFound("No data Found");
         }
         return Ok(answer);
-
     }
 }
 
