@@ -84,7 +84,7 @@ public class PizzaController : ControllerBase
             //
             //}
             // select * from PizzaExtras where PizzaExtraId in (1,2,3,4)
-            var lstExtra = await _appDbContext.PizzaExtras.Where( x => orderRequest.Extras.Contains(x.Id) ).ToListAsync();
+            var lstExtra = await _appDbContext.PizzaExtras.Where( x => orderRequest.Extras.Contains(x.Id)).ToListAsync();
             total +=lstExtra.Sum(x => x.Price);
         }
         var invoiceNo = DateTime.Now.ToString("yyyMMHHmmss");
