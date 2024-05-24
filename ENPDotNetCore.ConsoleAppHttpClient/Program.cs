@@ -3,7 +3,6 @@
 Console.WriteLine("Hello, World!");
 
 string jsonStr = await File.ReadAllTextAsync("Birds.json");
-
 var model = JsonConvert.DeserializeObject<MainDto>(jsonStr);
 
 foreach(var item in model.Tbl_Bird)
@@ -11,10 +10,7 @@ foreach(var item in model.Tbl_Bird)
     Console.WriteLine(item.BirdMyanmarName);
 }
 //Console.WriteLine(jsonStr);
-
 Console.ReadLine();
-
-
 //Json to C# ?? Newtonsoft.json
 public class MainDto
 {

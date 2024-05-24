@@ -9,8 +9,11 @@ public class BlogModel
     //bcz of not null in the database
     [Key]
     public int BlogId { get; set; }
+
     public string? BlogTitle { get; set; }
+
     public string? BlogAuthor { get; set; }
+
     public string? BlogContent { get; set; }
 
 }

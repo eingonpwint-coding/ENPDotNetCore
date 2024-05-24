@@ -8,7 +8,6 @@ namespace ENPDotNetCore.HomeworkApi.Controllers;
 [ApiController]
 public class MyanmarProverbsController : ControllerBase
 {
-
     private async Task<Tbl_Mmproverbs> GetDataFromApi()
     {
         HttpClient client = new HttpClient();
@@ -55,7 +54,6 @@ public class MyanmarProverbsController : ControllerBase
         return Ok(item);
     }
 }
-
 
 public class Tbl_Mmproverbs
 {

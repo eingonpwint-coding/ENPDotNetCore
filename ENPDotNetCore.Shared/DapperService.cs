@@ -2,51 +2,50 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ENPDotNetCore.Shared
+namespace ENPDotNetCore.Shared;
+
+public class DapperService
 {
-    public class DapperService
+    private readonly string _connectionString;
+    public DapperService(string connectionString)
     {
-        private readonly string _connectionString;
-        public DapperService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-        
-        public List<M> Query<M>(string query,object?param = null)
-        {
-            using IDbConnection db = new SqlConnection(_connectionString);
-            //if(param != null)
-            //{
-            //    var lst = db.Query<M>(query, param).ToList();
-            //}
-            //else
-            //{
-            //    var lst = db.Query<M>(query).ToList();
-            //}
-            var lst =  db.Query<M>(query,param).ToList(); 
-            return lst;
-        }
+        _connectionString = connectionString;
+    }
+    
+    public List<M> Query<M>(string query,object?param = null)
+    {
+        using IDbConnection db = new SqlConnection(_connectionString);
+        //if(param != null)
+        //{
+        //    var lst = db.Query<M>(query, param).ToList();
+        //}
+        //else
+        //{
+        //    var lst = db.Query<M>(query).ToList();
+        //}
+        var lst =  db.Query<M>(query,param).ToList(); 
+        return lst;
+    }
 
-        public M QueryFirstOrDefault<M>(string query, object? param = null)
-        {
-            using IDbConnection db = new SqlConnection(_connectionString);
-            //if(param != null)
-            //{
-            //    var lst = db.Query<M>(query, param).ToList();
-            //}
-            //else
-            //{
-            //    var lst = db.Query<M>(query).ToList();
-            //}
-            var item = db.Query<M>(query, param).FirstOrDefault();
-            return item;
-        }
+    public M QueryFirstOrDefault<M>(string query, object? param = null)
+    {
+        using IDbConnection db = new SqlConnection(_connectionString);
+        //if(param != null)
+        //{
+        //    var lst = db.Query<M>(query, param).ToList();
+        //}
+        //else
+        //{
+        //    var lst = db.Query<M>(query).ToList();
+        //}
+        var item = db.Query<M>(query, param).FirstOrDefault();
+        return item;
+    }
 
-        public int Execute(string query, object? param = null)
-        {
-            using IDbConnection db = new SqlConnection(_connectionString);
-            int result = db.Execute(query,param);
-            return result;
-        }
+    public int Execute(string query, object? param = null)
+    {
+        using IDbConnection db = new SqlConnection(_connectionString);
+        int result = db.Execute(query,param);
+        return result;
     }
 }

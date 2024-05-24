@@ -14,8 +14,8 @@ internal class HttpClientExample
     {
         BaseAddress = new Uri("https://localhost:7144")
     };
+    
     private readonly string _blogEndpoint = "api/blog";
-
     public async Task RunAsync()
     {
         //await ReadAsync();
@@ -32,7 +32,6 @@ internal class HttpClientExample
 
     private async Task ReadAsync()
     {
-      
         var response = await _client.GetAsync(_blogEndpoint);
         if (response.IsSuccessStatusCode)
         {
@@ -44,12 +43,10 @@ internal class HttpClientExample
                 Console.WriteLine($"Title => {item.BlogTitle}");
                 Console.WriteLine($"Author => {item.BlogAuthor}");
                 Console.WriteLine($"Content => {item.BlogContent}\n");
-
             }
         }
 
     }
-
     private async Task EditAsync(int id)
     {
         var response = await _client.GetAsync($"{_blogEndpoint}/{id}");
@@ -85,7 +82,6 @@ internal class HttpClientExample
             Console.WriteLine(message);
         }
     }
-
     private async Task CreateAsync(string title, string author, string content)
     {
         BlogModel blog = new BlogModel()

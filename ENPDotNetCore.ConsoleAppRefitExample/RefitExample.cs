@@ -24,7 +24,6 @@ public  class RefitExample
 
     private async Task ReadAsync()
     {
-        
         var lst = await _service.GetBlogs();
         foreach (var item in lst)
         {
@@ -93,7 +92,6 @@ public  class RefitExample
             Console.WriteLine(ex.ToString());//show detail
         }
     }
-
 
     private async Task DeleteAsync(int id)
     {

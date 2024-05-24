@@ -26,8 +26,6 @@ internal class RestClientExample
         //await PatchAsync(21, title:"testing patch");
         //await PatchAsync(21, content: "Updated Content");
         //await PatchAsync(21, author: "Updated author");
-        
-    
     }
 
     private async Task ReadAsync()
@@ -46,10 +44,8 @@ internal class RestClientExample
                 Console.WriteLine($"Title => {item.BlogTitle}");
                 Console.WriteLine($"Author => {item.BlogAuthor}");
                 Console.WriteLine($"Content => {item.BlogContent}\n");
-
             }
         }
-
     }
 
     private async Task EditAsync(int id)
@@ -106,7 +102,6 @@ internal class RestClientExample
             string message = response.Content!;
             Console.WriteLine(message);
         }
-
     }
 
     private async Task UpdateAsync(int id, string title, string author, string content)
