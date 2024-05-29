@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{EC
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RestApi", "ENP.RestApi\ENPDotNetCore.RestApi.csproj", "{E3FC5C99-3EDF-4946-AC47-7233CF732F3B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.Shared", "ENPDotNetCore.Shared\ENPDotNetCore.Shared.csproj", "{09EA095E-4B16-4891-8683-4C971B1F0AC7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RestApiWithNLayer", "ENPDotNetCoreRestApiWithNLayer\ENPDotNetCore.RestApiWithNLayer.csproj", "{FBD06B31-C29F-474A-8B8D-E0398762BBDB}"
@@ -29,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.PizzaApi", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppRefitExample", "ENPDotNetCore.ConsoleAppRefitExample\ENPDotNetCore.ConsoleAppRefitExample.csproj", "{4110D443-28DA-4BAA-AA67-4DCE0C72E020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.WinFormsApp", "ENPDotNetCore.WinFormsApp\ENPDotNetCore.WinFormsApp.csproj", "{A9D0E2F1-0304-4808-92DC-C8734080E921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.WinFormsApp", "ENPDotNetCore.WinFormsApp\ENPDotNetCore.WinFormsApp.csproj", "{A9D0E2F1-0304-4808-92DC-C8734080E921}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RestApi", "ENPDotNetCore.RestApi\ENPDotNetCore.RestApi.csproj", "{35407462-5DC3-4447-B6F9-2DD6BAD2235E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,6 @@ Global
 		{E5AB6100-3A37-4F67-9EB9-A38CA0031E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5AB6100-3A37-4F67-9EB9-A38CA0031E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5AB6100-3A37-4F67-9EB9-A38CA0031E5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3FC5C99-3EDF-4946-AC47-7233CF732F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3FC5C99-3EDF-4946-AC47-7233CF732F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3FC5C99-3EDF-4946-AC47-7233CF732F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3FC5C99-3EDF-4946-AC47-7233CF732F3B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09EA095E-4B16-4891-8683-4C971B1F0AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09EA095E-4B16-4891-8683-4C971B1F0AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09EA095E-4B16-4891-8683-4C971B1F0AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +77,10 @@ Global
 		{A9D0E2F1-0304-4808-92DC-C8734080E921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9D0E2F1-0304-4808-92DC-C8734080E921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9D0E2F1-0304-4808-92DC-C8734080E921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35407462-5DC3-4447-B6F9-2DD6BAD2235E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35407462-5DC3-4447-B6F9-2DD6BAD2235E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35407462-5DC3-4447-B6F9-2DD6BAD2235E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35407462-5DC3-4447-B6F9-2DD6BAD2235E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

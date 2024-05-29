@@ -16,5 +16,5 @@ internal static class ConnectionStrings
         UserID = "sa",
         Password = "sasa@123",
         TrustServerCertificate = true,
-    }
+    };
 }
