@@ -1,4 +1,4 @@
-﻿namespace ENPDotNetCore.WinFormsApp;
+﻿namespace ENPDotNetCore.WinFormsApp.Models;
 
 public class BlogModel
 {
