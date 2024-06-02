@@ -95,7 +95,7 @@ function deleteBlog(id) {
     lst = lst.filter(x => x.id !== id);
     const jsonBlog = JSON.stringify(lst);
     localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
-    
+
     successMessage("Deleting Successful .");
     getBlogTable();
 }
@@ -156,7 +156,6 @@ function getBlogTable() {
         <tr>
             <td>
             <button type="button" class="btn btn-warning" onclick="editBlog('${item.id}')">Edit</button>
-            
             <button type="button" class="btn btn-danger" onclick="deleteBlog('${item.id}')">Delete</button>
             </td>
             <td>${++count}</td>
