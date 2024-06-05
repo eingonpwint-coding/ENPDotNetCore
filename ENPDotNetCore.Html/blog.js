@@ -80,25 +80,54 @@ function updateBlog(id, title, author, content) {
     successMessage("updating successful");
 }
 
+// function deleteBlog(id) {
+//     let result = confirm("Are you sure to delete ?");
+//     if(!result ) return;
+
+//     let lst = getBlogs();
+//     const items = lst.filter(x => x.id == id);
+//     console.log(items);
+//     console.log(items.length);
+//     if (items.length == 0) {
+//         console.log("No data found");
+//         return;
+//     }
+//     lst = lst.filter(x => x.id !== id);
+//     const jsonBlog = JSON.stringify(lst);
+//     localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
+
+//     successMessage("Deleting Successful .");
+//     getBlogTable();
+// }
 function deleteBlog(id) {
-    let result = confirm("Are you sure to delete ?");
-    if(!result ) return;
+    Notiflix.Confirm.show(
+        ' Delete Confirmation',
+        'Are you sure to delete?',
+        'Yes',
+        'No',
+        function okCb() {
+            let lst = getBlogs();
+            const items = lst.filter(x => x.id == id);
+            console.log(items);
+            console.log(items.length);
+            if (items.length == 0) {
+                console.log("No data found");
+                return;
+            }
+            lst = lst.filter(x => x.id !== id);
+            const jsonBlog = JSON.stringify(lst);
+            localStorage.setItem(tblBlog, jsonBlog); // only accept string, not object
 
-    let lst = getBlogs();
-    const items = lst.filter(x => x.id == id);
-    console.log(items);
-    console.log(items.length);
-    if (items.length == 0) {
-        console.log("No data found");
-        return;
-    }
-    lst = lst.filter(x => x.id !== id);
-    const jsonBlog = JSON.stringify(lst);
-    localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
-
-    successMessage("Deleting Successful .");
-    getBlogTable();
+            successMessage("Deleting Successful.");
+            getBlogTable();
+        },
+        function cancelCb() {
+            console.log('Deletion cancelled');
+        },
+        
+    );
 }
+
 
 
 function uuidv4() {
@@ -133,11 +162,21 @@ $('#btnSave').click(function () {
 })
 
 function successMessage(message) {
-    alert(message);
+    //alert(message);
+    Swal.fire({
+        title: "Success!",
+        text: message,
+        icon: "success"
+    });
 }
 
 function errorMessage(message) {
-    alert(message);
+    //alert(message);
+    Swal.fire({
+        title: "Error!",
+        text: message,
+        icon: "error"
+    });
 }
 
 function clearControls() {
