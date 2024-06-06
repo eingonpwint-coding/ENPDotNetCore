@@ -4,6 +4,61 @@ let blogId = null;
 //updateBlog("bfae3cb2-2b01-46b9-a4c6-607412a10a44","2222","2222","22222");
 //deleteBlog("96318d5f-a10a-467f-8289-72b36b8d7f8e");
 getBlogTable();
+//testConfirmMessage2();
+
+function testConfirmMessage() {
+    let confirmMessage = new Promise(function (success, error) {
+        // "Producing Code" (May take some time)
+        const result = confirm("Are you sure you want to delete");
+        if (result) {
+            success(); // when successful
+        }
+        else {
+            error();  // when error
+        }
+    });
+
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    confirmMessage.then(
+        function (value) {
+            successMessage("Success");
+        },
+        function (error) {
+            errorMessage("Error");
+        }
+    );
+}
+function testConfirmMessage2() {
+    let confirmMessage = new Promise(function (success, error) {
+        // "Producing Code" (May take some time)
+        Swal.fire({
+            title: "Confirm",
+            text: "Are you sure you want to delete it ?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                success(); // when successful
+            }
+            else {
+                error();  // when error
+            }
+        });
+    });
+
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    confirmMessage.then(
+        function (value) {
+            successMessage("Success");
+        },
+        function (error) {
+            errorMessage("Error");
+        }
+    );
+}
 
 function readBlog() {
     let lst = getBlogs();
@@ -99,13 +154,67 @@ function updateBlog(id, title, author, content) {
 //     successMessage("Deleting Successful .");
 //     getBlogTable();
 // }
+// function deleteBlog1(id) {
+//     Notiflix.Confirm.show(
+//         ' Delete Confirmation',
+//         'Are you sure to delete?',
+//         'Yes',
+//         'No',
+//         function okCb() {
+//             let lst = getBlogs();
+//             const items = lst.filter(x => x.id == id);
+//             console.log(items);
+//             console.log(items.length);
+//             if (items.length == 0) {
+//                 console.log("No data found");
+//                 return;
+//             }
+//             lst = lst.filter(x => x.id !== id);
+//             const jsonBlog = JSON.stringify(lst);
+//             localStorage.setItem(tblBlog, jsonBlog); // only accept string, not object
+
+//             successMessage("Deleting Successful.");
+//             getBlogTable();
+//         },
+//         function cancelCb() {
+//             console.log('Deletion cancelled');
+//         },
+
+//     );
+// }
+
+// function deleteBlog(id) {
+//     Swal.fire({
+//         title: "Confirm",
+//         text: "Are you sure you want to delete it ?",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "Yes, delete it!"
+//     }).then((result) => {
+//         if (!result.isConfirmed) return;
+//         let lst = getBlogs();
+//         const items = lst.filter(x => x.id == id);
+//         console.log(items);
+//         console.log(items.length);
+//         if (items.length == 0) {
+//             console.log("No data found");
+//             return;
+//         }
+//         lst = lst.filter(x => x.id !== id);
+//         const jsonBlog = JSON.stringify(lst);
+//         localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
+
+//         successMessage("Deleting Successful .");
+//         getBlogTable();
+//     });
+// }
+
 function deleteBlog(id) {
-    Notiflix.Confirm.show(
-        ' Delete Confirmation',
-        'Are you sure to delete?',
-        'Yes',
-        'No',
-        function okCb() {
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    confirmMessage("Are you sure you want to delete it ?").then(
+        function (value) {
             let lst = getBlogs();
             const items = lst.filter(x => x.id == id);
             console.log(items);
@@ -116,19 +225,13 @@ function deleteBlog(id) {
             }
             lst = lst.filter(x => x.id !== id);
             const jsonBlog = JSON.stringify(lst);
-            localStorage.setItem(tblBlog, jsonBlog); // only accept string, not object
+            localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
 
-            successMessage("Deleting Successful.");
+            successMessage("Deleting Successful .");
             getBlogTable();
-        },
-        function cancelCb() {
-            console.log('Deletion cancelled');
-        },
-        
+        }
     );
 }
-
-
 
 function uuidv4() {
     return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
@@ -150,34 +253,16 @@ $('#btnSave').click(function () {
     const title = $('#txtTitle').val();
     const author = $('#txtAuthor').val();
     const content = $('#txtContent').val();
-    if(blogId === null){
+    if (blogId === null) {
         createBlog(title, author, content);
     }
-    else{
-        updateBlog(blogId,title,author,content);
+    else {
+        updateBlog(blogId, title, author, content);
         blogId = null;
     }
     getBlogTable();
-    
+
 })
-
-function successMessage(message) {
-    //alert(message);
-    Swal.fire({
-        title: "Success!",
-        text: message,
-        icon: "success"
-    });
-}
-
-function errorMessage(message) {
-    //alert(message);
-    Swal.fire({
-        title: "Error!",
-        text: message,
-        icon: "error"
-    });
-}
 
 function clearControls() {
     $('#txtTitle').val('');
