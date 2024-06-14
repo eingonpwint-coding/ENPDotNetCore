@@ -1,5 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ENPDotNetCore.ConsoleApp.AdoDotNetExamples;
+using ENPDotNetCore.ConsoleApp.DapperExamples;
 using ENPDotNetCore.ConsoleApp.EFCoreExamples;
+using ENPDotNetCore.ConsoleApp.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -45,7 +50,30 @@ foreach (DataRow dr in dt.Rows)
 
 //DapperExample dapperExample = new DapperExample();
 //dapperExample.Run();
-EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Run();
 
-Console.ReadKey();
+//EFCoreExample eFCoreExample = new EFCoreExample();
+//eFCoreExample.Run();
+
+//Console.ReadKey();
+
+// if we use service provider, firstly need to install dependency 
+var connectionString = ConnectionStrings.SqlConnectionStringBuilder.ConnectionString;
+var sqlConnectionStringBuilder = new SqlConnectionStringBuilder(connectionString);
+var serviceProvider = new ServiceCollection()
+    .AddScoped(n => new AdoDotNetExample(sqlConnectionStringBuilder))
+    .AddScoped(n => new DapperExample(sqlConnectionStringBuilder))
+    .AddDbContext<AppDBContext>(opt =>
+    {
+        opt.UseSqlServer(connectionString);
+    })
+    .AddScoped<EFCoreExample>()
+    .BuildServiceProvider();
+
+//AppDBContext db = serviceProvider.GetRequiredService<AppDBContext>();
+
+var adoDotNetExample = serviceProvider.GetRequiredService<AdoDotNetExample>();
+adoDotNetExample.Read();
+
+//var dapperExample = serviceProvider.GetRequiredService<DapperExample>();
+//dapperExample.Run();
+Console.ReadLine();

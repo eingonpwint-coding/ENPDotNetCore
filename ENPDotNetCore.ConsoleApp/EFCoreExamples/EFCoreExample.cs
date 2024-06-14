@@ -11,7 +11,14 @@ namespace ENPDotNetCore.ConsoleApp.EFCoreExamples;
 
 internal class EFCoreExample
 {
-    private readonly AppDBContext _db = new AppDBContext();
+    private readonly AppDBContext _db;
+
+    public EFCoreExample(AppDBContext db)
+    {
+        _db = db;
+    }
+
+    //private readonly AppDBContext _db = new AppDBContext();
     public void Run()
     {
         //Read();

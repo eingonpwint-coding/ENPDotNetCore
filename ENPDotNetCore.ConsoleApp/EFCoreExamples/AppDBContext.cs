@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace ENPDotNetCore.ConsoleApp.EFCoreExamples;
 
-internal class AppDBContext : DbContext
+public  class AppDBContext : DbContext
 {
-    // write override onCon
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public AppDBContext(DbContextOptions options) : base(options)
     {
-        optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
     }
+
+    // write override onCon
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+    //}
     public DbSet<BlogDto> Blogs { get; set; }
 }

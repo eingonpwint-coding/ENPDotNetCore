@@ -15,10 +15,17 @@ namespace ENPDotNetCore.RestApi.Controllers;
 public class BlogController : ControllerBase
 {
     private readonly AppDBContext _dbContext;
-    public BlogController()
+
+    //public BlogController()
+    //{
+    //    _dbContext = new AppDBContext();
+    //}
+
+    public BlogController(AppDBContext dbContext)
     {
-        _dbContext = new AppDBContext();
+        _dbContext = dbContext;
     }
+
 
     [HttpGet]
     public IActionResult Read()

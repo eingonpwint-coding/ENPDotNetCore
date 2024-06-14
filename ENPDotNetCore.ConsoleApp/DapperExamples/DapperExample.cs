@@ -14,6 +14,13 @@ namespace ENPDotNetCore.ConsoleApp.DapperExamples;
 
 internal class DapperExample
 {
+    private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder;
+
+    public DapperExample(SqlConnectionStringBuilder sqlConnectionStringBuilder)
+    {
+        _sqlConnectionStringBuilder = sqlConnectionStringBuilder;
+    }
+
     public void Run()
     {
         //Read();
@@ -23,9 +30,10 @@ internal class DapperExample
         //Update(14,"test","test","test");
         //Delete(14);
     }
+  
     private void Read()
     {
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         List<BlogDto> lst = db.Query<BlogDto>("select * from Tbl_Blog").ToList();
         foreach (BlogDto item in lst)
         {
@@ -39,7 +47,7 @@ internal class DapperExample
     }
     private void Edit(int id)
     {
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         var item = db.Query<BlogDto>("select * from Tbl_Blog where BlogId=@BlogId", new BlogDto { BlogId = id }).FirstOrDefault();//object default is null
 
         if (item is null)
@@ -71,7 +79,7 @@ internal class DapperExample
            (@BlogTitle
            ,@BlogAuthor
            ,@BlogContent)";
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
         string message = result > 0 ? "Saving Successful" : "Saving Failed";
         Console.WriteLine(message);
@@ -90,7 +98,7 @@ internal class DapperExample
                 ,[BlogAuthor] = @BlogAuthor
                 ,[BlogContent] = @BlogContent
                  WHERE BLogId =@BlogId";
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
         string message = result > 0 ? "Updating Successful" : "Updating Failed";
         Console.WriteLine(message);
@@ -104,7 +112,7 @@ internal class DapperExample
         };
         string query = @"DELETE FROM [dbo].[Tbl_Blog]
             WHERE BlogId = @BlogId";
-        using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
         string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
         Console.WriteLine(message);
