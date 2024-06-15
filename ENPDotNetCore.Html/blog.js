@@ -133,6 +133,7 @@ function updateBlog(id, title, author, content) {
     localStorage.setItem(tblBlog, jsonBlog); // only accept string , not object
 
     successMessage("updating successful");
+    clearControls();
 }
 
 // function deleteBlog(id) {
