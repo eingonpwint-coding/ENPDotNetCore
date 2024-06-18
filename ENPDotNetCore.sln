@@ -31,13 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.WinFormsApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RestApi", "ENPDotNetCore.RestApi\ENPDotNetCore.RestApi.csproj", "{35407462-5DC3-4447-B6F9-2DD6BAD2235E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.WinFormsAppSqlinjection", "ENPDotNetCore.WinFormsAppSqlinjection\ENPDotNetCore.WinFormsAppSqlinjection.csproj", "{17AEA5E3-1371-4951-AEBF-E02DD1EB985C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.WinFormsAppSqlinjection", "ENPDotNetCore.WinFormsAppSqlinjection\ENPDotNetCore.WinFormsAppSqlinjection.csproj", "{17AEA5E3-1371-4951-AEBF-E02DD1EB985C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.NLayer.UI", "ENPDotNetCore.NLayer.UI\ENPDotNetCore.NLayer.UI.csproj", "{029EE258-9BA1-476A-9AF4-A8FE5DF10289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.NLayer.UI", "ENPDotNetCore.NLayer.UI\ENPDotNetCore.NLayer.UI.csproj", "{029EE258-9BA1-476A-9AF4-A8FE5DF10289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.NLayer.BusinessLogic", "ENPDotNetCore.NLayer.BusinessLogic\ENPDotNetCore.NLayer.BusinessLogic.csproj", "{32EDE95D-714F-4598-8BB0-8EF5CA83D28D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.NLayer.BusinessLogic", "ENPDotNetCore.NLayer.BusinessLogic\ENPDotNetCore.NLayer.BusinessLogic.csproj", "{32EDE95D-714F-4598-8BB0-8EF5CA83D28D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.NLayer.DataAccess", "ENPDotNetCore.NLayer.DataAccess\ENPDotNetCore.NLayer.DataAccess.csproj", "{6CEC5618-0A5B-41DD-ABD5-FC1D1009B787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.NLayer.DataAccess", "ENPDotNetCore.NLayer.DataAccess\ENPDotNetCore.NLayer.DataAccess.csproj", "{6CEC5618-0A5B-41DD-ABD5-FC1D1009B787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.MinimalApi", "ENPDotNetCore.MinimalApi\ENPDotNetCore.MinimalApi.csproj", "{761DECA3-104F-4D12-A0D4-67F1E27194B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{6CEC5618-0A5B-41DD-ABD5-FC1D1009B787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CEC5618-0A5B-41DD-ABD5-FC1D1009B787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CEC5618-0A5B-41DD-ABD5-FC1D1009B787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761DECA3-104F-4D12-A0D4-67F1E27194B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761DECA3-104F-4D12-A0D4-67F1E27194B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761DECA3-104F-4D12-A0D4-67F1E27194B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761DECA3-104F-4D12-A0D4-67F1E27194B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
