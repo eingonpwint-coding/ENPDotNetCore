@@ -13,10 +13,14 @@ namespace ENPDotNetCore.MvcApp.Controllers
         {
             _db = db;
         }
+
         [ActionName("Index")]
         public async Task<IActionResult> BlogIndex()
         {
-            List<BlogModel> lst = await _db.Blogs.ToListAsync();
+            List<BlogModel> lst = await _db.Blogs
+                .AsNoTracking()
+                .OrderByDescending(x => x.BlogId)
+                .ToListAsync();
             return View("BlogIndex",lst);
         }
 
@@ -33,6 +37,57 @@ namespace ENPDotNetCore.MvcApp.Controllers
            await _db.Blogs.AddAsync(blog);
            var result = await _db.SaveChangesAsync();
            return Redirect("/Blog");
+        }
+
+        [HttpGet]
+        [ActionName("Edit")]
+        public IActionResult BlogEdit(int id)
+        {
+            var item = _db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return Redirect("/Blog");
+            }
+            return View("BlogEdit",item);
+        }
+
+        [HttpPost]
+        [ActionName("Update")]
+        public async Task<IActionResult> BlogUpdate(BlogModel blog,int id)
+        {
+
+            var item = await _db.Blogs
+                .AsNoTracking().
+                FirstOrDefaultAsync(x => x.BlogId == id);
+            if (item is null)
+            {
+                return Redirect("/Blog");
+            }
+
+            item.BlogTitle = blog.BlogTitle;
+            item.BlogAuthor = blog.BlogAuthor;
+            item.BlogContent = blog.BlogContent;
+
+            _db.Entry(item).State = EntityState.Modified;
+
+            await _db.SaveChangesAsync();
+            return Redirect("/Blog");
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> BlogDelete(int id)
+        {
+            var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
+            if (item is null)
+            {
+                return Redirect("/Blog");
+            }
+
+            _db.Blogs.Remove(item);
+            await _db.SaveChangesAsync();
+
+            return Redirect("/Blog");
         }
     }
 }
