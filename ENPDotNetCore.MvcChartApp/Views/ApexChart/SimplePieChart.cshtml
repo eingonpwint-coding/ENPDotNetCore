@@ -1,14 +1,16 @@
-﻿<div id="chart"></div>
+﻿@model PieChartModel
+<div id="chart"></div>
 @section scripts{
     <script>
-
+        const _series = @JsonConvert.SerializeObject(Model.Series);
+        const _labels = @Html.Raw(JsonConvert.SerializeObject(Model.Labels));// output like raw without encoding , use Html.Raw
         var options = {
-            series: [44, 55, 13, 43, 22],
+            series: _series,
             chart: {
                 width: 380,
                 type: 'pie',
             },
-            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+            labels: _labels,
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -28,6 +30,4 @@
 
     </script>
 }
-
-
 
