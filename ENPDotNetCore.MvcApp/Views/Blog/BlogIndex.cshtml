@@ -4,7 +4,7 @@
     int count = 0;
 }
 <h2>Blog List</h2>
-<a href="Blog/Create" class="btn btn-success">New</a>
+<a href="/Blog/Create" class="btn btn-success">New</a>
 <table class="table table-responsive">
     <thead>
         <tr>
@@ -21,8 +21,8 @@
         {
             <tr>
                 <td>
-                    <a href="Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
-                    <a href="Blog/Delete/@item.BlogId" class="btn btn-danger">Delete</a>
+                    <a href="/Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@item.BlogId" class="btn btn-danger">Delete</a>
                 </td>
                 <td>@(++count)</td>
                 <td>@item.BlogTitle</td>
