@@ -79,8 +79,10 @@ internal class DapperExample
            (@BlogTitle
            ,@BlogAuthor
            ,@BlogContent)";
+        
         using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
+        
         string message = result > 0 ? "Saving Successful" : "Saving Failed";
         Console.WriteLine(message);
     }
@@ -98,8 +100,10 @@ internal class DapperExample
                 ,[BlogAuthor] = @BlogAuthor
                 ,[BlogContent] = @BlogContent
                  WHERE BLogId =@BlogId";
+        
         using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
+        
         string message = result > 0 ? "Updating Successful" : "Updating Failed";
         Console.WriteLine(message);
     }
@@ -112,8 +116,10 @@ internal class DapperExample
         };
         string query = @"DELETE FROM [dbo].[Tbl_Blog]
             WHERE BlogId = @BlogId";
+        
         using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
         int result = db.Execute(query, item);
+        
         string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
         Console.WriteLine(message);
     }

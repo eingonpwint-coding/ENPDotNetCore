@@ -94,8 +94,9 @@ public class BlogDapperController : ControllerBase
         }
         if(conditions.Length == 0)
         {
-            return NotFound("no data found");
+            return NotFound("no data to update");
         }
+        //if {} includes, must write {}. if so can combine C# code and query 
         conditions = conditions.Substring(0, conditions.Length - 2);
         blogModel.BlogId = id;
         string query = $@"UPDATE [dbo].[Tbl_Blog]
