@@ -5,8 +5,16 @@ namespace ENPDotNetCore.MvcChartApp.Controllers
 {
     public class ApexChartController : Controller
     {
+        private readonly ILogger<ApexChartController> _logger;
+
+        public ApexChartController(ILogger<ApexChartController> logger)
+        {
+            _logger = logger;
+        }
+
         public IActionResult SimplePieChart()
         {
+            _logger.LogInformation("Simple Pie chart");
             PieChartModel model = new PieChartModel();
             model.Series = new List<int> { 44, 55, 13, 43, 22};
             model.Labels = new List<string> { "Team A", "Team B", "Team C", "Team D", "Team E" };
