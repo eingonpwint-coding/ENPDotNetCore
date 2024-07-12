@@ -1,0 +1,53 @@
+﻿@model VariwideChartModel
+<div id="container"></div>
+@section scripts{
+    <script>
+        const _data = @Html.Raw(JsonConvert.SerializeObject(Model.VariwideChartData));
+       
+        Highcharts.chart('container', {
+
+            chart: {
+                type: 'variwide'
+            },
+
+            title: {
+                text: 'Labor Costs in Europe, 2016'
+            },
+
+            subtitle: {
+                text: 'Source: <a href="http://ec.europa.eu/eurostat/web/' +
+                    'labour-market/labour-costs/main-tables">eurostat</a>'
+            },
+
+            xAxis: {
+                type: 'category'
+            },
+
+            caption: {
+                text: 'Column widths are proportional to GDP'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'Labor Costs',
+                data: _data.map(item => [item.Country,item.LaborCost,item.GDP]),
+                dataLabels: {
+                    enabled: true,
+                    format: '€{point.y:.0f}'
+                },
+                tooltip: {
+                    pointFormat: 'Labor Costs: <b>€ {point.y}/h</b><br>' +
+                        'GDP: <b>€ {point.z} million</b><br>'
+                },
+                borderRadius: 3,
+                colorByPoint: true
+            }]
+
+        });
+
+
+    </script>
+}

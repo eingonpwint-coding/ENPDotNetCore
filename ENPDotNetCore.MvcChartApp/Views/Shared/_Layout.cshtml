@@ -25,6 +25,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Chart
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                               @*  <li><a class="dropdown-item" href="#">ApexChart</a></li>
+                                <li><a class="dropdown-item" href="#">ChartJs</a></li>
+                                <li><a class="dropdown-item" href="#">High Chart</a></li>
+                                <li><a class="dropdown-item" href="#">Canvas Chart</a></li> *@
+
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="ApexChart" asp-action="SimplePieChart">ApexChart</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="ChartJs" asp-action="GridConfigurationChart">ChartJs</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="HighChart" asp-action="DonutChart">High Chart</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="CanvasChart" asp-action="SplineAreaChart">Canvas Chart</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -45,6 +69,14 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/variwide.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

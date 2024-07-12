@@ -1,0 +1,89 @@
+﻿@model GridConfigurationChartModel
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@section scripts {
+    <script>
+        const _labels = @Html.Raw(JsonConvert.SerializeObject(Model.Labels));
+        const _dataSets = @Html.Raw(JsonConvert.SerializeObject(Model.DataSets));
+
+        const actions = [
+            {
+                name: 'Randomize',
+                handler(chart) {
+                    chart.data.datasets.forEach(dataset => {
+                        dataset.data = Utils.numbers({ count: chart.data.labels.length, min: -100, max: 100 });
+                    });
+                    chart.update();
+                }
+            },
+        ];
+
+        const DATA_COUNT = 7;
+        const data = {
+            labels: _labels,
+            datasets: _dataSets.map(d => ({
+                labels : d.Label,
+                data : d.Data,
+                fill : d.Fill,
+                borderColor : d.BorderColor ,
+                backgroundColor : d.BackgroundColor,
+
+            }))
+        };
+
+        // Change these settings to change the display for different parts of the X axis
+        // grid configuration
+        const DISPLAY = true;
+        const BORDER = true;
+        const CHART_AREA = true;
+        const TICKS = true;
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Grid Line Settings'
+                    }
+                },
+                scales: {
+                    x: {
+                        border: {
+                            display: BORDER
+                        },
+                        grid: {
+                            display: DISPLAY,
+                            drawOnChartArea: CHART_AREA,
+                            drawTicks: TICKS,
+                        }
+                    },
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            color: function (context) {
+                                if (context.tick.value > 0) {
+                                    return 'rgb(75, 192, 192)';
+                                } else if (context.tick.value < 0) {
+                                    return 'rgb(255, 99, 132)';
+                                }
+
+                                return '#000000';
+                            },
+                        },
+                    }
+                }
+            },
+        };
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, config);
+    </script>
+}

@@ -11,7 +11,10 @@ namespace ENPDotNetCore.MvcChartApp.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult SimplePieChart()
         {
             _logger.LogInformation("Simple Pie chart");
