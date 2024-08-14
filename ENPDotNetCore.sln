@@ -53,11 +53,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RealTimeChatA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.RealTimeChartApp", "ENPDotNetCore.RealTimeChartApp\ENPDotNetCore.RealTimeChartApp.csproj", "{F2E1ECED-1505-4325-94C1-15F9E6DFBE20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.ConsoleAppEFCore", "ENPDotNetCore.ConsoleAppEFCore\ENPDotNetCore.ConsoleAppEFCore.csproj", "{3FA19894-2D0B-406F-8FAF-FA762758E0BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppEFCore", "ENPDotNetCore.ConsoleAppEFCore\ENPDotNetCore.ConsoleAppEFCore.csproj", "{3FA19894-2D0B-406F-8FAF-FA762758E0BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.ConsoleAppEFCore2", "ENPDotNetCore.ConsoleAppEFCore2\ENPDotNetCore.ConsoleAppEFCore2.csproj", "{99A03633-8CE5-4689-B3BA-3EAF579F75D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppEFCore2", "ENPDotNetCore.ConsoleAppEFCore2\ENPDotNetCore.ConsoleAppEFCore2.csproj", "{99A03633-8CE5-4689-B3BA-3EAF579F75D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.ConsoleAppEFCore.Databases", "ENPDotNetCore.ConsoleAppEFCore.Databases\ENPDotNetCore.ConsoleAppEFCore.Databases.csproj", "{7FA0B416-B84F-4945-A0CB-72C0E72001AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppEFCore.Databases", "ENPDotNetCore.ConsoleAppEFCore.Databases\ENPDotNetCore.ConsoleAppEFCore.Databases.csproj", "{7FA0B416-B84F-4945-A0CB-72C0E72001AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.MvcDesignApp", "ENPDotNetCore.MvcDesignApp\ENPDotNetCore.MvcDesignApp.csproj", "{E36F3099-645D-46A7-B4B2-5D2D79D906BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{7FA0B416-B84F-4945-A0CB-72C0E72001AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA0B416-B84F-4945-A0CB-72C0E72001AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA0B416-B84F-4945-A0CB-72C0E72001AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
