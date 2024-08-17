@@ -59,7 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppEFC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.ConsoleAppEFCore.Databases", "ENPDotNetCore.ConsoleAppEFCore.Databases\ENPDotNetCore.ConsoleAppEFCore.Databases.csproj", "{7FA0B416-B84F-4945-A0CB-72C0E72001AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.MvcDesignApp", "ENPDotNetCore.MvcDesignApp\ENPDotNetCore.MvcDesignApp.csproj", "{E36F3099-645D-46A7-B4B2-5D2D79D906BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENPDotNetCore.MvcDesignApp", "ENPDotNetCore.MvcDesignApp\ENPDotNetCore.MvcDesignApp.csproj", "{E36F3099-645D-46A7-B4B2-5D2D79D906BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENPDotNetCore.BlazorWasm", "ENPDotNetCore.BlazorWasm\ENPDotNetCore.BlazorWasm.csproj", "{5239397A-7FC4-4721-8428-E4D727E9BEDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E36F3099-645D-46A7-B4B2-5D2D79D906BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5239397A-7FC4-4721-8428-E4D727E9BEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5239397A-7FC4-4721-8428-E4D727E9BEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5239397A-7FC4-4721-8428-E4D727E9BEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5239397A-7FC4-4721-8428-E4D727E9BEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
