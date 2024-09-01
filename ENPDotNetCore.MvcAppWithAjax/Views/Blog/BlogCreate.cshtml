@@ -1,0 +1,54 @@
+﻿<div class="mb-3">
+    <label  class="form-label">Title</label>
+    <input type="text" class="form-control" id="txtTitle" >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Author</label>
+    <input type="text" class="form-control" id="txtAuthor">
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Content</label>
+    <input type="text" class="form-control" id="txtContent">
+</div>
+ 
+<button type="button" class="btn btn-success" id="btnSave">Save</button>
+@section scripts{
+    <script>
+        $('#btnSave').click(function (e) {
+            e.preventDefault();
+            let title = $('#txtTitle').val();
+            let author = $('#txtAuthor').val();
+            let content = $('#txtContent').val();
+            let _blog = {
+                BlogTitle: title,
+                BlogAuthor: author,
+                BlogContent: content
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Blog/Save',
+                data: { blog : _blog },// first blog is from controller - : 2nd blog -- from javascript
+                //data : JSON.stringify(_blog),
+                //contentType : 'application/json',
+                dataType: "JSON",
+                success: function (result) {
+                    //console.log(result);
+                    const message = result.Message;
+                    if (!result.IsSuccess) {
+                        alert(message);
+                        return;
+                    }
+
+                    alert(message);
+                    location.href = "/Blog/Index";
+                },
+                error: function (xhr, status, error) {
+                    console.log({ xhr, status, error })
+                }
+            });
+        })
+    </script>
+}
